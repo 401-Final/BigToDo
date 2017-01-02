@@ -1,0 +1,11 @@
+@import 'colors';
+
+:local(.user) {
+	text-align: right;
+	
+	span {
+		color: $display-color;
+		border: 1px solid $display-color;
+		padding: 10px;
+	}
+}
