@@ -20,4 +20,4 @@ When you are PLANNING, you want to look at tasks associated with a given **Proje
 through the sequence and relationships between the related actions that move your project along.
 
 When you are DOING, you want to know what tasks you can do given your current **Context**. This can be a physical
-location like //At Home// or a virtual location like //On Internet// or //Phone//.
+location like *At Home* or a virtual location like *On Internet* or *Phone*.
