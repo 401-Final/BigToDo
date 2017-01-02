@@ -1,0 +1,9 @@
+@import 'colors';
+
+button {
+    background:$button-primary;
+		color: white;
+		&:hover {
+        color:$button-hover;
+    }
+  }
