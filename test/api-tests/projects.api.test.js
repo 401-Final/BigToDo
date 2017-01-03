@@ -58,6 +58,7 @@ describe('projects api', () => {
         assert.equal(body.parentId, project.parentId);
         assert.ok(body.userId);
         project = body; // to prep for the comparison on the next test
+        console.log('\nproject ', project);
         done();
       })
       .catch(done);
@@ -94,9 +95,28 @@ describe('projects api', () => {
     parentId: project._id,
   };
 
+  console.log('child after def ', child);
+
   let grandchild = {
     description: 'test project grandchild',
   };
+
+  it.skip ('POSTS a child project', (done) => {
+    console.log('child ', child);
+    request
+      .post('/api/projects')
+      .set(authHeader)
+      .send(child)
+      .then(({ body }) => {
+        assert.ok(body._id);
+        child._id = body._id;
+        child.userId = body.userId;
+        child.__v = 0;
+        assert.deepEqual(body, child);
+        done();
+      })
+      .catch(done);
+  });
 
   it.skip ('GETs /api/projects?parent=project', (done) => {
     request
