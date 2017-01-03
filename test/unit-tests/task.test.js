@@ -1,4 +1,4 @@
-const Task = require('../lib/models/task');
+const Task = require('../../lib/models/task');
 const expect = require('chai').expect;
 
 const mongoose = require('mongoose');

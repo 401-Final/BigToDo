@@ -1,4 +1,4 @@
-const Context = require('../lib/models/context');
+const Context = require('../../lib/models/context');
 const expect = require('chai').expect;
 
 const mongoose = require('mongoose');
