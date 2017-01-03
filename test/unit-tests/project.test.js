@@ -11,8 +11,8 @@ describe ('Project model', () => {
   it ('validates with description and user', (done) => {
     const test_project = new Project({
       description: 'Do this project',
-      parent: projId,
-      user: userId
+      parentId: projId,
+      userId: userId
     });
 
     test_project.validate((err) => {
@@ -22,8 +22,8 @@ describe ('Project model', () => {
 
   it ('description is required', (done) => {
     const test_project = new Project({
-      parent: projId,
-      user: userId
+      parentId: projId,
+      userId: userId
     });
 
     test_project.validate((err) => {
@@ -36,7 +36,7 @@ describe ('Project model', () => {
   it ('user is required', (done) => {
     const test_project = new Project({
       description: 'Do this project',
-      parent: projId
+      parentId: projId
     });
 
     test_project.validate((err) => {
@@ -46,17 +46,17 @@ describe ('Project model', () => {
     });
   });
 
-  it ('parent is required', (done) => {
-    const test_project = new Project({
-      description: 'Do this project',
-      user: userId
-    });
+  // it ('parent is required', (done) => {
+  //   const test_project = new Project({
+  //     description: 'Do this project',
+  //     user: userIdId
+  //   });
 
-    test_project.validate((err) => {
-      if (!err) done('description should have been required');
-      expect(err).to.be.ok;
-      done();
-    });
-  });
+  //   test_project.validate((err) => {
+  //     if (!err) done('description should have been required');
+  //     expect(err).to.be.ok;
+  //     done();
+  //   });
+  // });
 
 });

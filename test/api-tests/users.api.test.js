@@ -39,11 +39,15 @@ describe ('Users API', () => {
 
   let userId = null;
 
-  it('GET /api/users/:id', () => {
+  it.skip ('GET /api/users/:id', () => {
     request
       .get(`/api/users/${userId}`)
       .set(authHeader)
       .then(res => expect(res.body).to.deep.equal([]));
   });
+
+  // after((done) => {
+  //   connection.close(done);
+  // });
 
 });

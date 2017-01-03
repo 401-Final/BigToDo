@@ -7,7 +7,6 @@ chai.use(chaiHttp);
 // instead of directly adding it to the npm test script
 process.env.MONGODB_URI = 'mongodb://localhost/bigtodo-test';
 
-
 const connection = require('../../lib/setup-mongoose');
 const db = require('../db');
 const app = require('../../lib/app');
@@ -44,7 +43,6 @@ describe('projects api', () => {
 
   let project = {
     description: 'test project',
-    parent: 'test parent',
   };
 
   it('POST /api/projects {project} posts project to DB', (done) => {
@@ -57,8 +55,8 @@ describe('projects api', () => {
         project._id = body._id;
         project.__v = 0;
         assert.equal(body.description, project.description);
-        assert.equal(body.parent, project.parent);
-        assert.ok(body.user);
+        assert.equal(body.parentId, project.parentId);
+        assert.ok(body.userId);
         project = body; // to prep for the comparison on the next test
         done();
       })
@@ -87,6 +85,46 @@ describe('projects api', () => {
       .catch(done);
   });
 
+  // POST two additional projects: child, grandchild.
+  // GET /api/projects?parent=parent and verify you get child
+  // GET /api/projects?parent=child and verify you get grandchild
+
+  let child = {
+    description: 'test project child',
+    parentId: project._id,
+  };
+
+  let grandchild = {
+    description: 'test project grandchild',
+  };
+
+  it.skip ('GETs /api/projects?parent=project', (done) => {
+    request
+      .post('api/projects')
+      .set(authHeader)
+      .send(child)
+      .then((saved) => {
+        child._id = saved._id;
+        child.__v = 0;
+        grandchild.parentId = child._id;
+        request
+          .post('/api/projects')
+          .set(authHeader)
+          .send(grandchild)
+          .then((saved) => {
+            grandchild._id = saved._id;
+            grandchild.__v = 0;
+            request
+              .get(`/api/projects?parent=${project._id}`)
+              .then((res) => {
+                assert.deepEqual(res.body, [ child ]);
+                done();
+              });
+          });
+      })
+      .catch(done);
+  });
+
   it('DELETE project removes from DB', (done) => {
     request
       .delete(`/api/projects/${project._id}`)
@@ -103,5 +141,9 @@ describe('projects api', () => {
       })
       .catch(done);
   });
+
+  // after((done) => {
+  //   connection.close(done);
+  // });
 
 });
