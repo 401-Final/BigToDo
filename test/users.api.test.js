@@ -3,6 +3,8 @@ const chaiHttp = require('chai-http');
 const { expect } = chai;
 chai.use(chaiHttp);
 
+process.env.MONGODB_URI = 'mongodb://localhost/bigtodo-test';
+
 const connection = require('../lib/setup-mongoose');
 const db = require('./db');
 const app = require('../lib/app');
