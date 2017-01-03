@@ -1,12 +1,16 @@
 const Task = require('../lib/models/task');
 const expect = require('chai').expect;
 
-describe ('task model', () => {
+const mongoose = require('mongoose');
+mongoose.Promise = Promise;
+const userId = new mongoose.Types.ObjectId();
+
+describe ('Task model', () => {
 
   it ('validates with description and user', (done) => {
     const test_task = new Task({
       description: 'Do this task',
-      user: '1'
+      user: userId
     });
 
     test_task.validate((err) => {
@@ -16,7 +20,7 @@ describe ('task model', () => {
 
   it ('description is required', (done) => {
     const test_task = new Task({
-      user: '1'
+      user: userId
     });
 
     test_task.validate((err) => {
