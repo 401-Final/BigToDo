@@ -155,6 +155,7 @@ describe('projects api', () => {
           .set(authHeader)
           .then(({ body }) => {
             assert.equal(body.length, 2);
+            console.log('The two remaining ', body);
             done();
           });
       })
