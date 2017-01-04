@@ -18,20 +18,22 @@ describe('projects api', () => {
   const request = chai.request(app);
 
   let authHeader = null;    
-  before(() => request
-        .post('/api/auth/signup')
-        .send({
-          email: 'user@user.com', 
-          username: 'user',
-          password: 'abc'
-        })
-        .then(({ body }) => {
-          assert.isOk(body.token);
-          authHeader = { Authorization: `Bearer ${body.token}` };
-        })
-    );
+  before((done) => {
+    request
+      .post('/api/auth/signup')
+      .send({
+        email: 'user@user.com', 
+        username: 'user',
+        password: 'abc'
+      })
+      .then(({ body }) => {
+        assert.isOk(body.token);
+        authHeader = { Authorization: `Bearer ${body.token}` };
+        done();
+      });
+  });
 
-  it('GET /api/projects on empty DB returns empty array', (done) => request
+  it ('GET /api/projects on empty DB returns empty array', (done) => request
     .get('/api/projects')
     .set(authHeader)
     .then(res => {
@@ -42,10 +44,19 @@ describe('projects api', () => {
   );
 
   let project = {
-    description: 'test project',
+    description: 'test project'
   };
 
-  it('POST /api/projects {project} posts project to DB', (done) => {
+  let child = {
+    description: 'test project child'
+  };
+
+  let grandchild = {
+    description: 'test project grandchild'
+  };
+
+  it ('POST /api/projects {project} posts project(s) to DB', (done) => {
+    console.log('\nauthHeader ', authHeader);
     request
       .post('/api/projects')
       .set(authHeader)
@@ -59,12 +70,44 @@ describe('projects api', () => {
         assert.ok(body.userId);
         project = body; // to prep for the comparison on the next test
         console.log('\nproject ', project);
+        child.parentId = project._id;
+      })
+      .then(() => {
+        return request
+          .post('/api/projects')
+          .set(authHeader)
+          .send(child)
+          .then(({ body }) => {
+            assert.ok(body._id);
+            child._id = body._id;
+            child.__v = 0;
+            assert.equal(body.description, child.description);
+            assert.equal(body.parentId, child.parentId);
+            assert.ok(body.userId);
+            child = body;
+            grandchild.parentId = child._id;
+          });
+      })
+      .then(() => {
+        request
+          .post('/api/projects')
+          .set(authHeader)
+          .send(grandchild)
+          .then(({ body }) => {
+            assert.ok(body._id);
+            grandchild._id = body._id;
+            grandchild.__v = 0;
+            assert.equal(body.description, grandchild.description);
+            assert.equal(body.parentId, grandchild.parentId);
+            assert.ok(body.userId);
+            grandchild = body;
+          });
         done();
       })
       .catch(done);
   });
 
-  it('GET by id returns the POSTed project', (done) => {
+  it ('GET by id returns the POSTed project', (done) => {
     request
       .get(`/api/projects/${project._id}`)
       .set(authHeader)
@@ -75,12 +118,12 @@ describe('projects api', () => {
       .catch(done);
   });
 
-  it('GET all after post contains one item', (done) => {
+  it ('GET all after post contains three items', (done) => {
     request
       .get('/api/projects')
       .set(authHeader)
       .then(({ body }) => {
-        assert.deepEqual(body, [project]);
+        assert.equal(body.length, 3);
         done();
       })
       .catch(done);
@@ -90,62 +133,18 @@ describe('projects api', () => {
   // GET /api/projects?parent=parent and verify you get child
   // GET /api/projects?parent=child and verify you get grandchild
 
-  let child = {
-    description: 'test project child',
-    parentId: project._id,
-  };
-
-  console.log('child after def ', child);
-
-  let grandchild = {
-    description: 'test project grandchild',
-  };
-
-  it.skip ('POSTS a child project', (done) => {
-    console.log('child ', child);
+  it ('GETs /api/projects?parent=project', (done) => {
     request
-      .post('/api/projects')
+      .get(`/api/projects?parent=${project._id}`)
       .set(authHeader)
-      .send(child)
-      .then(({ body }) => {
-        assert.ok(body._id);
-        child._id = body._id;
-        child.userId = body.userId;
-        child.__v = 0;
-        assert.deepEqual(body, child);
+      .then((res) => {
+        assert.deepEqual(res.body, [ child ]);
         done();
       })
       .catch(done);
   });
 
-  it.skip ('GETs /api/projects?parent=project', (done) => {
-    request
-      .post('api/projects')
-      .set(authHeader)
-      .send(child)
-      .then((saved) => {
-        child._id = saved._id;
-        child.__v = 0;
-        grandchild.parentId = child._id;
-        request
-          .post('/api/projects')
-          .set(authHeader)
-          .send(grandchild)
-          .then((saved) => {
-            grandchild._id = saved._id;
-            grandchild.__v = 0;
-            request
-              .get(`/api/projects?parent=${project._id}`)
-              .then((res) => {
-                assert.deepEqual(res.body, [ child ]);
-                done();
-              });
-          });
-      })
-      .catch(done);
-  });
-
-  it('DELETE project removes from DB', (done) => {
+  it ('DELETE project removes from DB', (done) => {
     request
       .delete(`/api/projects/${project._id}`)
       .set(authHeader)
@@ -155,7 +154,8 @@ describe('projects api', () => {
           .get('/api/projects')
           .set(authHeader)
           .then(({ body }) => {
-            assert.deepEqual(body, []);
+            assert.equal(body.length, 2);
+            console.log('The two remaining ', body);
             done();
           });
       })
