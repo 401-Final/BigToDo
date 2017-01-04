@@ -1,6 +1,6 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const assert = chai.assert;
+const { expect } = chai;
 chai.use(chaiHttp);
 
 //Mongo needs to be running; this line is the Windows-compliant method
@@ -17,18 +17,39 @@ describe('projects api', () => {
 
   const request = chai.request(app);
 
-  let authHeader = null;    
+  let authHeader = null;
+  let authHeader2 = null;
+
+  const user = {
+    username: 'user',
+    password: 'abc',
+    email: 'user@mail.com'    
+  };
+
+  const user2 = {
+    username: 'user2',
+    password: 'xyz',
+    email: 'user2@mail.com'
+  };
+
   before((done) => {
     request
       .post('/api/auth/signup')
-      .send({
-        email: 'user@user.com', 
-        username: 'user',
-        password: 'abc'
-      })
+      .send(user)
       .then(({ body }) => {
-        assert.isOk(body.token);
+        expect(body.token).to.be.ok;
         authHeader = { Authorization: `Bearer ${body.token}` };
+        done();
+      });
+  });
+
+  before((done) => {
+    request
+      .post('/api/auth/signup')
+      .send(user2)
+      .then(({ body }) => {
+        expect(body.token).to.be.ok;
+        authHeader2 = { Authorization: `Bearer ${body.token}` };
         done();
       });
   });
@@ -37,7 +58,7 @@ describe('projects api', () => {
     .get('/api/projects')
     .set(authHeader)
     .then(res => {
-      assert.deepEqual(res.body, []);
+      expect(res.body).to.deep.equal([]);
       done();
     })
     .catch(done)
@@ -56,20 +77,18 @@ describe('projects api', () => {
   };
 
   it ('POST /api/projects {project} posts project(s) to DB', (done) => {
-    console.log('\nauthHeader ', authHeader);
     request
       .post('/api/projects')
       .set(authHeader)
       .send(project)
       .then(({ body }) => {
-        assert.ok(body._id);
+        expect(body._id).to.be.ok;
         project._id = body._id;
         project.__v = 0;
-        assert.equal(body.description, project.description);
-        assert.equal(body.parentId, project.parentId);
-        assert.ok(body.userId);
+        expect(body.description).to.equal(project.description);
+        expect(body.parentId).to.equal(project.parentId);
+        expect(body.userId).to.be.ok;
         project = body; // to prep for the comparison on the next test
-        console.log('\nproject ', project);
         child.parentId = project._id;
       })
       .then(() => {
@@ -78,12 +97,12 @@ describe('projects api', () => {
           .set(authHeader)
           .send(child)
           .then(({ body }) => {
-            assert.ok(body._id);
+            expect(body._id).to.be.ok;
             child._id = body._id;
             child.__v = 0;
-            assert.equal(body.description, child.description);
-            assert.equal(body.parentId, child.parentId);
-            assert.ok(body.userId);
+            expect(body.description).to.equal(child.description);
+            expect(body.parentId).to.equal(child.parentId);
+            expect(body.userId).to.be.ok;
             child = body;
             grandchild.parentId = child._id;
           });
@@ -94,12 +113,12 @@ describe('projects api', () => {
           .set(authHeader)
           .send(grandchild)
           .then(({ body }) => {
-            assert.ok(body._id);
+            expect.ok(body._id);
             grandchild._id = body._id;
             grandchild.__v = 0;
-            assert.equal(body.description, grandchild.description);
-            assert.equal(body.parentId, grandchild.parentId);
-            assert.ok(body.userId);
+            expect(body.description).to.equal(grandchild.description);
+            expect(body.parentId).to.equal(grandchild.parentId);
+            expect(body.userId).to.be.ok;
             grandchild = body;
           });
         done();
@@ -112,7 +131,7 @@ describe('projects api', () => {
       .get(`/api/projects/${project._id}`)
       .set(authHeader)
       .then(({ body }) =>  {
-        assert.deepEqual(body, project);
+        expect(body).to.deep.equal(project);
         done();
       })
       .catch(done);
@@ -123,22 +142,18 @@ describe('projects api', () => {
       .get('/api/projects')
       .set(authHeader)
       .then(({ body }) => {
-        assert.equal(body.length, 3);
+        expect(body.length).to.equal(3);
         done();
       })
       .catch(done);
   });
-
-  // POST two additional projects: child, grandchild.
-  // GET /api/projects?parent=parent and verify you get child
-  // GET /api/projects?parent=child and verify you get grandchild
 
   it ('GETs /api/projects?parent=project', (done) => {
     request
       .get(`/api/projects?parent=${project._id}`)
       .set(authHeader)
       .then((res) => {
-        assert.deepEqual(res.body, [ child ]);
+        expect(res.body).to.deep.equal([ child ]);
         done();
       })
       .catch(done);
@@ -149,18 +164,41 @@ describe('projects api', () => {
       .delete(`/api/projects/${project._id}`)
       .set(authHeader)
       .then(({ body }) => {
-        assert.deepEqual(body, project);
+        expect(body).to.deep.equal(project);
         request
           .get('/api/projects')
           .set(authHeader)
           .then(({ body }) => {
-            assert.equal(body.length, 2);
-            console.log('The two remaining ', body);
+            expect(body.length).to.equal(2);
             done();
           });
       })
       .catch(done);
   });
+
+  // TODO: Authenticate as different user, make sure you only get your own tasks
+
+  it ('second user cannot see first user\'s tasks', (done) => {
+    request
+      .get('/api/projects')
+      .set(authHeader2)
+      .then(({ body }) => {
+        expect(body).to.deep.equal([]);
+        done();
+      })
+      .catch(done);
+  });
+
+  // it ('second user POSTs a project', (done) => {
+  //   request
+  //     .post('/api/projects')
+  //     .set(authHeader2)
+  //     .send(user2project)
+  //     .then((saved) => {
+  //       done();
+  //     })
+  //     .catch(done);
+  // });
 
   // after((done) => {
   //   connection.close(done);
