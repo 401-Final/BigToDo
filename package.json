@@ -4,14 +4,14 @@
   "description": "",
   "main": "server.js",
   "directories": {
-    "test": "test"
+    "test": "test/**/*.js"
   },
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "mocha",
+    "test": "mocha test/**/*.js",
     "test:debug": "mocha --debug-brk",
     "test:watch": "nodemon --exec mocha"
   },
