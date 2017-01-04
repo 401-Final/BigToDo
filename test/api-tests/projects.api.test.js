@@ -17,18 +17,39 @@ describe('projects api', () => {
 
   const request = chai.request(app);
 
-  let authHeader = null;    
+  let authHeader = null;
+  let authHeader2 = null;
+
+  const user = {
+    username: 'user',
+    password: 'abc',
+    email: 'user@mail.com'    
+  };
+
+  const user2 = {
+    username: 'user2',
+    password: 'xyz',
+    email: 'user2@mail.com'
+  };
+
   before((done) => {
     request
       .post('/api/auth/signup')
-      .send({
-        email: 'user@user.com', 
-        username: 'user',
-        password: 'abc'
-      })
+      .send(user)
       .then(({ body }) => {
         assert.isOk(body.token);
         authHeader = { Authorization: `Bearer ${body.token}` };
+        done();
+      });
+  });
+
+  before((done) => {
+    request
+      .post('/api/auth/signup')
+      .send(user2)
+      .then(({ body }) => {
+        assert.isOk(body.token);
+        authHeader2 = { Authorization: `Bearer ${body.token}` };
         done();
       });
   });
@@ -56,7 +77,6 @@ describe('projects api', () => {
   };
 
   it ('POST /api/projects {project} posts project(s) to DB', (done) => {
-    console.log('\nauthHeader ', authHeader);
     request
       .post('/api/projects')
       .set(authHeader)
@@ -69,7 +89,6 @@ describe('projects api', () => {
         assert.equal(body.parentId, project.parentId);
         assert.ok(body.userId);
         project = body; // to prep for the comparison on the next test
-        console.log('\nproject ', project);
         child.parentId = project._id;
       })
       .then(() => {
@@ -155,9 +174,21 @@ describe('projects api', () => {
           .set(authHeader)
           .then(({ body }) => {
             assert.equal(body.length, 2);
-            console.log('The two remaining ', body);
             done();
           });
+      })
+      .catch(done);
+  });
+
+  // TODO: Authenticate as different user, make sure you only get your own tasks
+
+  it ('second user cannot see first user\'s tasks', (done) => {
+    request
+      .get('/api/projects')
+      .set(authHeader2)
+      .then(({ body }) => {
+        assert.deepEqual(body, []);
+        done();
       })
       .catch(done);
   });
