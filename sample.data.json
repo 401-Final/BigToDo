@@ -1,0 +1,82 @@
+[
+  {
+    "username": "nielsbohr",
+    "password": "atom",
+    "email": "niels@copenhagen.net",
+    "projects": [
+      {
+        "description": "Develop grand unified theory",
+        "subprojects": [
+          {
+            "description": "Develop model of the atom",
+            "tasks": [
+              {
+                "description": "Bake plum pudding"
+              },
+              {
+                "description": "Figure out how to draw electron shells"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "username": "lbeethoven",
+    "password": "music",
+    "email": "ludwig@vienna.net",
+    "projects": [
+      {
+        "description": "Write my 9th Symphony",
+        "tasks": [
+          {
+            "description": "Figure out how to modulate between major and minor keys"
+          },
+          {
+            "description": "Interview Schiller about 'Ode to Joy'"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "username": "mbatali",
+    "password": "grub",
+    "email": "mario@thechew.com",
+    "projects": [
+      {
+        "description": "Film next episode of 'The Chew'",
+        "tasks": [
+          {
+            "description": "Buy garlic, shallots, and penne"
+          },
+          {
+            "description": "Make Penne Puttanesca"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "username": "neilarmstrong",
+    "password": "moon",
+    "email": "neil@nasa.gov",
+    "projects": [
+      {
+        "description": "Be the first man on the moon",
+        "duedate": "07-20-1969",
+        "tasks": [
+          {
+            "description": "Pack for trip to Moon",
+            "duedate": "07-16-1969"
+          },
+          {
+            "description": "Step out of the LEM",
+            "duedate": "07-20-1969"
+          }
+        ]
+      }
+    ]
+  }
+]
