@@ -153,6 +153,7 @@ describe('projects api', () => {
       .get(`/api/projects?parent=${project._id}`)
       .set(authHeader)
       .then((res) => {
+        child.parentId = { _id: project._id, description: project.description };
         expect(res.body).to.deep.equal([ child ]);
         done();
       })
