@@ -10,7 +10,7 @@ describe ('Context model', () => {
   it ('validates with name and user', (done) => {
     const test_context = new Context({
       name: 'Home',
-      user: userId
+      userId: userId
     });
 
     test_context.validate((err) => {
@@ -20,7 +20,7 @@ describe ('Context model', () => {
 
   it ('name is required', (done) => {
     const test_context = new Context({
-      user: userId
+      userId: userId
     });
 
     test_context.validate((err) => {
@@ -30,13 +30,13 @@ describe ('Context model', () => {
     });
   });
 
-  it ('user is required', (done) => {
+  it ('userId is required', (done) => {
     const test_context = new Context({
       name: 'Do this task'
     });
 
     test_context.validate((err) => {
-      if (!err) done('user should have been required');
+      if (!err) done('userId should have been required');
       expect(err).to.be.ok;
       done();
     });

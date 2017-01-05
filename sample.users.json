@@ -1,0 +1,22 @@
+[
+  {
+    "username": "nielsbohr",
+    "password": "abc",
+    "email": "niels@copenhagen.net"
+  },
+  {
+    "username": "lbeethoven",
+    "password": "xyz",
+    "email": "ludwig@leipzig.net"
+  },
+  {
+    "username": "neilarmstrong",
+    "password": "onestep",
+    "email": "neil@nasa.gov"
+  },
+  {
+    "username": "mbatali",
+    "password": "grub",
+    "email": "mario@kitchen.com"
+  }
+]
