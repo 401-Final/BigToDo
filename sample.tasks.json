@@ -1,46 +1,41 @@
 [
   {
-    "description": "Develop model of the atom",
+    "description": "Bake some plum pudding",
+    "project": "Develop model of the atom",
     "user": "nielsbohr"
-  },
-  {
-    "description": "Write my 9th Symphony",
-    "user": "lbeethoven"
   },
   {
     "description": "Visit Mozart",
     "user": "lbeethoven"
   },
   {
-    "description": "Write my 9th Symphony",
-    "user": "lbeethoven"
-  },
-  {
     "description": "Learn how to modulate between major and minor keys",
+    "project": "Write my 9th Symphony",
     "user": "lbeethoven"
   },
   {
-    "description": "Develop grand unified theory",
+    "description": "Figure out how to draw electron shells",
+    "project": "Develop model of the atom",
     "user": "nielsbohr"
   },
   {
     "description": "Pack for trip to the Moon",
+    "project": "Be the first man on the moon",
     "user": "neilarmstrong"
   },
   {
     "description": "Take a step outside the LEM",
+    "project": "Be the first man on the moon",
     "user": "neilarmstrong"
   },
   {
     "description": "Buy garlic, shallots, and rigatoni",
+    "project": "Film next episode of 'The Chew'",
     "user": "mbatali"
   },
   {
     "description": "Make Penne Puttanesca",
-    "user": "mbatali"
-  },
-  {
-    "description": "Film next episode of 'The Chew'",
+    "project": "Film next episode of 'The Chew'",
     "user": "mbatali"
   }
 ]
