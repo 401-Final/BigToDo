@@ -1,0 +1,5 @@
+#!/bin/bash
+mongoimport --db bigtodo-sample --collection users --file bigtodo-sample.users.json --drop
+mongoimport --db bigtodo-sample --collection tasks --file bigtodo-sample.tasks.json --drop
+mongoimport --db bigtodo-sample --collection projects --file bigtodo-sample.projects.json --drop
+mongoimport --db bigtodo-sample --collection contexts --file bigtodo-sample.contexts.json --drop
