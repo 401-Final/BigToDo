@@ -8,6 +8,14 @@
     "user": "lbeethoven"
   },
   {
+    "description": "Visit Mozart",
+    "user": "lbeethoven"
+  },
+  {
+    "description": "Write my 9th Symphony",
+    "user": "lbeethoven"
+  },
+  {
     "description": "Develop grand unified theory",
     "user": "nielsbohr"
   },
@@ -16,7 +24,19 @@
     "user": "neilarmstrong"
   },
   {
+    "description": "Take a step outside the LEM",
+    "user": "neilarmstrong"
+  },
+  {
     "description": "Buy garlic, shallots, and rigatoni",
+    "user": "mbatali"
+  },
+  {
+    "description": "Make Penne Puttanesca",
+    "user": "mbatali"
+  },
+  {
+    "description": "Film next episode of 'The Chew'",
     "user": "mbatali"
   }
 ]
