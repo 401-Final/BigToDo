@@ -69,26 +69,26 @@ const loadstuff = () => {
       return newuser.save();
     })
   )
-  .then(() => {
-    users.forEach((user) => {
-      projects.map(() => {
-        
-      })
-    });
+  // .then(() => {
+  //   users.forEach((user) => {
+  //     projects.map(() => {
+
+  //     })
+  //   });
     // Add the toplevel projects
-    return Promise.all(
-      tasks.map((task) => {
-        return User.findOne({ username: task.user })
-          .then((user) => {
-            task.userId = user._id;
-            return new Task(task).save();
-          })
-          .catch(err => {
-            console.log('err ', err.message);
-          });
-      })
-    );
-  })
+    // return Promise.all(
+    //   tasks.map((task) => {
+    //     return User.findOne({ username: task.user })
+    //       .then((user) => {
+    //         task.userId = user._id;
+    //         return new Task(task).save();
+    //       })
+    //       .catch(err => {
+    //         console.log('err ', err.message);
+    //       });
+    //   })
+    // );
+  // })
   .then(() => {
     process.exit(0);
   })
