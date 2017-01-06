@@ -16,7 +16,7 @@
     "test:watch": "nodemon --exec mocha"
   },
   "author": "Greg Katchmar <gunk55@msn.com> (www.gkatchmar.com)",
- "license": "ISC",
+  "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.0",
     "body-parser": "^1.15.2",

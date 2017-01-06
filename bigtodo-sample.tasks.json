@@ -1,0 +1,10 @@
+{"_id":{"$oid":"586e8d716ba6aab32cc328d5"},"description":"Pack for trip to the Moon","projectId":{"$oid":"586e8d216ba6aab32cc328d4"},"userId":{"$oid":"586e8bce0d2ffb772e4606dd"},"duedate":"07-16-1969","contextId":{"$oid":"586eb61f25a6207ba8a6a6ab"}}
+{"_id":{"$oid":"586e936a25a6207ba8a6a69e"},"description":"Figure out how to draw electron shells","userId":{"$oid":"586e8bce0d2ffb772e4606da"},"projectId":{"$oid":"586e91fb25a6207ba8a6a69c"}}
+{"_id":{"$oid":"586e927e25a6207ba8a6a69d"},"projectId":{"$oid":"586e91fb25a6207ba8a6a69c"},"description":"Bake plum pudding","userId":{"$oid":"586e8bce0d2ffb772e4606da"}}
+{"_id":{"$oid":"586e8dcf6ba6aab32cc328d6"},"description":"Step out of the LEM","duedate":"07-20-1969","projectId":{"$oid":"586e8d216ba6aab32cc328d4"},"userId":{"$oid":"586e8bce0d2ffb772e4606dd"},"contextId":{"$oid":"586eb63725a6207ba8a6a6ae"}}
+{"_id":{"$oid":"586ea93525a6207ba8a6a6a0"},"description":"Make Penne Puttanesca","userId":{"$oid":"586e8bce0d2ffb772e4606dc"},"projectId":{"$oid":"586ea84525a6207ba8a6a69f"}}
+{"_id":{"$oid":"586ea98025a6207ba8a6a6a1"},"description":"Buy garlic, shallots, and penne","userId":{"$oid":"586e8bce0d2ffb772e4606dc"},"projectId":{"$oid":"586ea84525a6207ba8a6a69f"}}
+{"_id":{"$oid":"586eaacc25a6207ba8a6a6a3"},"description":"Figure out how to modulate between major and minor keys","userId":{"$oid":"586e8bce0d2ffb772e4606db"},"projectId":{"$oid":"586eaaae25a6207ba8a6a6a2"}}
+{"_id":{"$oid":"586eac6f25a6207ba8a6a6a4"},"description":"Interview Schiller about the Ode to Joy","userId":{"$oid":"586e8bce0d2ffb772e4606db"},"projectId":{"$oid":"586eaaae25a6207ba8a6a6a2"},"contextId":{"$oid":"586eb48a25a6207ba8a6a6a7"}}
+{"_id":{"$oid":"586f0780aec260a1a3af943b"},"userId":{"$oid":"586e8bce0d2ffb772e4606db"},"description":"Come up with unforgettable motif","__v":0,"projectId":{"$oid":"586f0938aec260a1a3af943c"}}
+{"_id":{"$oid":"586f3da9d03f983d71d91da9"},"userId":{"$oid":"586e8bce0d2ffb772e4606dd"},"description":"Remember to jettison third stage","projectId":{"$oid":"586e8d216ba6aab32cc328d4"},"contextId":{"$oid":"586eb63125a6207ba8a6a6ad"}}

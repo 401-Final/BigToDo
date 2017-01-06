@@ -1,0 +1,4 @@
+{"_id":{"$oid":"586e8bce0d2ffb772e4606da"},"username":"nielsbohr","password":"$2a$08$2vwoXV8xpvaWa888UOzG4OGfbgTidAvN4bVBDzVqycl1XJoVlBS3G","email":"niels@copenhagen.net","__v":0}
+{"_id":{"$oid":"586e8bce0d2ffb772e4606db"},"username":"lbeethoven","password":"$2a$08$P24qbeR92.wfSzGWGJrGrOoGk1J77r66vyl6SRVVhSijPHxe9LNky","email":"ludwig@vienna.net","__v":0}
+{"_id":{"$oid":"586e8bce0d2ffb772e4606dc"},"username":"mbatali","password":"$2a$08$k9AfeG0DH44iH2f41JqE.uwiW0uVBLNALqnTzisX8jhRag.ojJjzm","email":"mario@thechew.com","__v":0}
+{"_id":{"$oid":"586e8bce0d2ffb772e4606dd"},"username":"neilarmstrong","password":"$2a$08$amt4OxYDB01FCTyM9oatA.6.QcjGAm74ADsgZJHc6Kk0zPiaXan3O","email":"neil@nasa.gov","__v":0}

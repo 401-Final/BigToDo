@@ -1,0 +1,11 @@
+{"_id":{"$oid":"586eb45625a6207ba8a6a6a5"},"name":"Home","userId":{"$oid":"586e8bce0d2ffb772e4606db"}}
+{"_id":{"$oid":"586eb47e25a6207ba8a6a6a6"},"name":"Errands","userId":{"$oid":"586e8bce0d2ffb772e4606db"}}
+{"_id":{"$oid":"586eb48a25a6207ba8a6a6a7"},"name":"AtWork","userId":{"$oid":"586e8bce0d2ffb772e4606db"}}
+{"_id":{"$oid":"586eb5a125a6207ba8a6a6a8"},"name":"Home","userId":{"$oid":"586e8bce0d2ffb772e4606da"}}
+{"_id":{"$oid":"586eb5a825a6207ba8a6a6a9"},"name":"Errands","userId":{"$oid":"586e8bce0d2ffb772e4606da"}}
+{"_id":{"$oid":"586eb5b025a6207ba8a6a6aa"},"name":"AtWork","userId":{"$oid":"586e8bce0d2ffb772e4606da"}}
+{"_id":{"$oid":"586eb61f25a6207ba8a6a6ab"},"name":"Home","userId":{"$oid":"586e8bce0d2ffb772e4606dd"}}
+{"_id":{"$oid":"586eb62825a6207ba8a6a6ac"},"name":"Errands","userId":{"$oid":"586e8bce0d2ffb772e4606dd"}}
+{"_id":{"$oid":"586eb63125a6207ba8a6a6ad"},"name":"AtWork","userId":{"$oid":"586e8bce0d2ffb772e4606dd"}}
+{"_id":{"$oid":"586eb63725a6207ba8a6a6ae"},"name":"OnMoon","userId":{"$oid":"586e8bce0d2ffb772e4606dd"}}
+{"_id":{"$oid":"586ef047529d5095933797db"},"userId":{"$oid":"586e8bce0d2ffb772e4606da"},"name":"Phone","__v":0}

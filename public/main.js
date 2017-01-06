@@ -56,55 +56,55 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
-	var _services = __webpack_require__(35);
+	var _services = __webpack_require__(59);
 	
 	var _services2 = _interopRequireDefault(_services);
 	
-	var _angularAnimate = __webpack_require__(43);
+	var _angularAnimate = __webpack_require__(68);
 	
 	var _angularAnimate2 = _interopRequireDefault(_angularAnimate);
 	
-	var _angularUiRouter = __webpack_require__(45);
+	var _angularUiRouter = __webpack_require__(70);
 	
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 	
-	var _angularUiRouterDefault = __webpack_require__(46);
+	var _angularUiRouterDefault = __webpack_require__(71);
 	
 	var _angularUiRouterDefault2 = _interopRequireDefault(_angularUiRouterDefault);
 	
-	__webpack_require__(47);
+	__webpack_require__(72);
 	
-	var _angularResource = __webpack_require__(48);
+	var _angularResource = __webpack_require__(73);
 	
 	var _angularResource2 = _interopRequireDefault(_angularResource);
 	
-	var _ngDialog = __webpack_require__(50);
+	var _ngDialog = __webpack_require__(75);
 	
 	var _ngDialog2 = _interopRequireDefault(_ngDialog);
 	
-	__webpack_require__(51);
+	__webpack_require__(76);
 	
-	__webpack_require__(53);
+	__webpack_require__(78);
 	
-	var _angularMaterial = __webpack_require__(55);
+	var _angularMaterial = __webpack_require__(80);
 	
 	var _angularMaterial2 = _interopRequireDefault(_angularMaterial);
 	
-	__webpack_require__(59);
+	__webpack_require__(84);
 	
-	__webpack_require__(61);
+	__webpack_require__(86);
 	
-	__webpack_require__(56);
+	__webpack_require__(81);
 	
-	var _http = __webpack_require__(63);
+	var _http = __webpack_require__(88);
 	
 	var _http2 = _interopRequireDefault(_http);
 	
-	var _routes = __webpack_require__(64);
+	var _routes = __webpack_require__(89);
 	
 	var _routes2 = _interopRequireDefault(_routes);
 	
-	var _auth = __webpack_require__(65);
+	var _auth = __webpack_require__(90);
 	
 	var _auth2 = _interopRequireDefault(_auth);
 	
@@ -33653,15 +33653,21 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./accounts/signin/signin.js": 12,
-		"./accounts/signup/signup.js": 16,
-		"./accounts/user-auth.js": 20,
-		"./accounts/user/user.js": 21,
-		"./app/app.js": 25,
-		"./contexts/contexts.js": 27,
-		"./projects/projects.js": 29,
-		"./tasks/tasks.js": 31,
-		"./welcome/welcome.js": 33
+		"./about/about.js": 12,
+		"./accounts/signin/signin.js": 14,
+		"./accounts/signup/signup.js": 18,
+		"./accounts/user-auth.js": 22,
+		"./accounts/user/user.js": 23,
+		"./add/add.js": 27,
+		"./app/app.js": 31,
+		"./contexts/contexts.js": 33,
+		"./doing/doing.js": 35,
+		"./planning/planning.js": 39,
+		"./projects/projectlist/projectlist.js": 43,
+		"./projects/projects.js": 47,
+		"./tasks/tasklist/tasklist.js": 49,
+		"./tasks/tasks.js": 53,
+		"./welcome/welcome.js": 57
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33687,11 +33693,37 @@
 	  value: true
 	});
 	
-	var _signin = __webpack_require__(13);
+	var _about = __webpack_require__(13);
+	
+	var _about2 = _interopRequireDefault(_about);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _about2.default
+	};
+
+/***/ },
+/* 13 */
+/***/ function(module, exports) {
+
+	module.exports = "<section>\n\t<h2>About</h2>\n  <h4>Authors</h4>\n  <p>\n    <a href=\"https://github.com/mjfreem1\" target=\"_blank\">Michael Freeman</a><br>\n    <a href=\"https://github.com/markgreenwood\" target=\"_blank\">Mark Greenwood</a><br>\n    <a href=\"https://github.com/gnkatchmar\" target=\"_blank\">Gregory Katchmar</a><br>\n    <a href=\"https://github.com/txtincorporated\" target=\"_blank\">Nathan Keene</a><br>\n  </p>\n  <h4><a href=\"https://github.com/401-Final\" target=\"_blank\">The BigToDo on Github</a></h4>\n</section>";
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _signin = __webpack_require__(15);
 	
 	var _signin2 = _interopRequireDefault(_signin);
 	
-	__webpack_require__(14);
+	__webpack_require__(16);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -33722,20 +33754,20 @@
 	}
 
 /***/ },
-/* 13 */
+/* 15 */
 /***/ function(module, exports) {
 
 	module.exports = "<section>\n\t<h2>Sign in to access your account</h2>\n\t<form name=\"auth\" ng-submit=\"$ctrl.authenticate()\">\n\t\t<div>\n\t\t\t<label>\n\t\t\t\tusername: <input required ng-model=\"$ctrl.credentials.username\">\n\t\t\t</label>\n\t\t</div>\n\n\t\t<div>\n\t\t\t<label>\n\t\t\t\tpassword: <input required type=\"password\" ng-model=\"$ctrl.credentials.password\">\n\t\t\t</label>\n\t\t</div>\n\n\t\t<button type=\"submit\">Sign In</button>\n\t</form>\n\t<div class=\"error\" ng-if='$ctrl.error'>{{$ctrl.error.reason}}</div>\n</section>";
 
 /***/ },
-/* 14 */
+/* 16 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 15 */,
-/* 16 */
+/* 17 */,
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33744,11 +33776,11 @@
 	  value: true
 	});
 	
-	var _signup = __webpack_require__(17);
+	var _signup = __webpack_require__(19);
 	
 	var _signup2 = _interopRequireDefault(_signup);
 	
-	__webpack_require__(18);
+	__webpack_require__(20);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -33780,20 +33812,20 @@
 	}
 
 /***/ },
-/* 17 */
+/* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n\t<h2>Sign up for Greg's Pet Store app</h2>\n\t<form name=\"auth\" ng-submit=\"$ctrl.authenticate()\">\n\t\t<div>\n\t\t\t<label>\n\t\t\t\temail: <input required ng-model=\"$ctrl.credentials.email\">\n\t\t\t</label>\n\t\t</div>\n\n\t\t<div>\n\t\t\t<label>\n\t\t\t\tusername: <input required ng-model=\"$ctrl.credentials.username\">\n\t\t\t</label>\n\t\t</div>\n\n\t\t<div>\n\t\t\t<label>\n\t\t\t\tpassword: <input required type=\"password\" ng-model=\"$ctrl.credentials.password\">\n\t\t\t</label>\n\t\t</div>\n\n\t\t<button type=\"submit\">Sign Up</button>\n\t</form>\n\t<div class=\"error\" ng-if='$ctrl.error'>{{$ctrl.error.reason}}</div>\n</section>";
+	module.exports = "<section>\n\t<h2>Sign up for The Big to Do app</h2>\n\t<form name=\"auth\" ng-submit=\"$ctrl.authenticate()\">\n\t\t<div>\n\t\t\t<label>\n\t\t\t\temail: <input required ng-model=\"$ctrl.credentials.email\">\n\t\t\t</label>\n\t\t</div>\n\n\t\t<div>\n\t\t\t<label>\n\t\t\t\tusername: <input required ng-model=\"$ctrl.credentials.username\">\n\t\t\t</label>\n\t\t</div>\n\n\t\t<div>\n\t\t\t<label>\n\t\t\t\tpassword: <input required type=\"password\" ng-model=\"$ctrl.credentials.password\">\n\t\t\t</label>\n\t\t</div>\n\n\t\t<button type=\"submit\">Sign Up</button>\n\t</form>\n\t<div class=\"error\" ng-if='$ctrl.error'>{{$ctrl.error.reason}}</div>\n</section>";
 
 /***/ },
-/* 18 */
+/* 20 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 19 */,
-/* 20 */
+/* 21 */,
+/* 22 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -33813,7 +33845,7 @@
 	}
 
 /***/ },
-/* 21 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33822,11 +33854,11 @@
 	  value: true
 	});
 	
-	var _user = __webpack_require__(22);
+	var _user = __webpack_require__(24);
 	
 	var _user2 = _interopRequireDefault(_user);
 	
-	var _user3 = __webpack_require__(23);
+	var _user3 = __webpack_require__(25);
 	
 	var _user4 = _interopRequireDefault(_user3);
 	
@@ -33843,21 +33875,21 @@
 	};
 
 /***/ },
-/* 22 */
+/* 24 */
 /***/ function(module, exports) {
 
 	module.exports = "<div ng-class=\"$ctrl.styles.user\">\n\t<span>{{$ctrl.user.username}}</span>\n</div>";
 
 /***/ },
-/* 23 */
+/* 25 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"user":"_2AlEW38ahRscF4DhpOwkOs"};
 
 /***/ },
-/* 24 */,
-/* 25 */
+/* 26 */,
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33866,7 +33898,72 @@
 	  value: true
 	});
 	
-	var _app = __webpack_require__(26);
+	var _add = __webpack_require__(28);
+	
+	var _add2 = _interopRequireDefault(_add);
+	
+	var _add3 = __webpack_require__(29);
+	
+	var _add4 = _interopRequireDefault(_add3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _add2.default,
+	  bindings: {
+	    _fields: '@fields',
+	    add: '<',
+	    projects: '<',
+	    contexts: '<'
+	  },
+	  controller: controller
+	};
+	
+	
+	function controller() {
+	  var _this = this;
+	
+	  this.styles = _add4.default;
+	
+	  this.$onInit = function () {
+	    _this.fields = _this._fields.replace(/ /g, '').split(',');
+	  };
+	
+	  this.reset = function () {
+	    _this.item = {};
+	  };
+	
+	  this.submit = function () {
+	    // this.item.parentId = this.parentId;
+	    _this.add(_this.item);
+	    _this.reset();
+	  };
+	}
+
+/***/ },
+/* 28 */
+/***/ function(module, exports) {
+
+	module.exports = "<section>\n  <form class=\"addbox\" ng-submit=\"$ctrl.submit()\">\n    <table>\n    <tr ng-repeat=\"field in $ctrl.fields\">\n      <td><label>{{field.toUpperCase()}}</label></td>\n      <td><input type=\"text\" ng-model=\"$ctrl.item[field]\"></td>\n    </tr>\n    </table> \n    <md-input-container ng-if=\"!$ctrl.contexts\">\n      <md-select ng-model=\"$ctrl.item.parentId\" placeholder=\"Select an optional parent project\">\n        <md-option ng-repeat=\"project in $ctrl.projects\" ng-value=\"project.description\">{{project.description}}</md-option>\n      </md-select>\n    </md-input-container>\n    <md-input-container ng-if=\"$ctrl.contexts\">\n      <md-select ng-model=\"$ctrl.item.projectId\" placeholder=\"Select an optional project\">\n        <md-option ng-repeat=\"project in $ctrl.projects\" ng-value=\"project.description\">{{project.description}}</md-option>\n      </md-select>\n    </md-input-container>\n    <md-input-container ng-if=\"$ctrl.contexts\">\n      <md-select ng-model=\"$ctrl.item.contextId\" placeholder=\"Select an optional context\">\n        <md-option ng-repeat=\"context in $ctrl.contexts\" ng-value=\"context.name\">{{context.name}}</md-option>\n      </md-select>\n    </md-input-container>\n    <button>Add</button>\n  </form>\n</section>\n\n<!--ng-model=\"projectSelect\"-->\n\n";
+
+/***/ },
+/* 29 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 30 */,
+/* 31 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _app = __webpack_require__(32);
 	
 	var _app2 = _interopRequireDefault(_app);
 	
@@ -33878,124 +33975,30 @@
 	};
 	
 	
-	controller.$inject = ['userService'];
+	controller.$inject = ['userService', 'loginService', '$state'];
 	
-	function controller(userService) {
+	function controller(userService, loginService, $state) {
 	  this.logout = function () {
-	    return userService.logout();
+	    $state.go('welcome').then(function () {
+	      return userService.logout();
+	    });
 	  };
+	
+	  this.login = function () {
+	    loginService.login();
+	    // $state.go('login');
+	  };
+	
 	  this.isAuthenticated = function () {
 	    return userService.isAuthenticated();
 	  };
 	}
 
 /***/ },
-/* 26 */
-/***/ function(module, exports) {
-
-	module.exports = "<main>\n\t\t<nav>\n        <!--<a ng-if=\"$ctrl.isAuthenticated()\" ui-sref=\"stores\" ng-click=\"$ctrl.logout()\">logout</a>-->\n\t\t\t\t<hr>\n    </nav>\n\t<ui-view></ui-view> \n</main>\n\n\n\n";
-
-/***/ },
-/* 27 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _contexts = __webpack_require__(28);
-	
-	var _contexts2 = _interopRequireDefault(_contexts);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	// import styles from './contexts.scss';
-	
-	exports.default = {
-	  template: _contexts2.default
-	  // controller
-	};
-	
-	// controller.$inject = ['contextservice', '$state'];
-	// function controller(contexts, $state) {
-	
-	// };
-
-/***/ },
-/* 28 */
-/***/ function(module, exports) {
-
-	module.exports = "<section>\n\t\t<h2>Contexts</h2>\n</section>";
-
-/***/ },
-/* 29 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _projects = __webpack_require__(30);
-	
-	var _projects2 = _interopRequireDefault(_projects);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	// import styles from './projects.scss';
-	
-	exports.default = {
-	  template: _projects2.default
-	  // controller
-	};
-	
-	// controller.$inject = ['projectservice', '$state'];
-	// function controller(projects, $state) {
-	
-	// };
-
-/***/ },
-/* 30 */
-/***/ function(module, exports) {
-
-	module.exports = "<section>\n\t\t<h2>Projects</h2>\n</section>";
-
-/***/ },
-/* 31 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _tasks = __webpack_require__(32);
-	
-	var _tasks2 = _interopRequireDefault(_tasks);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	// import styles from './tasks.scss';
-	
-	exports.default = {
-	  template: _tasks2.default
-	  // controller
-	};
-	
-	// controller.$inject = ['taskservice', '$state'];
-	// function controller(tasks, $state) {
-	
-	// };
-
-/***/ },
 /* 32 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n\t\t<h2>Tasks</h2>\n</section>";
+	module.exports = "<main>\n  <nav>\n    <md-nav-bar layout=\"row\" class=\"md-whiteframe-z3\" style=\"padding:0px;margin:0px\">\n      <md-nav-item md-nav-sref=\"tasks\">Tasks</md-nav-item>\n      <md-nav-item md-nav-sref=\"projects\">Projects</md-nav-item>\n      <md-nav-item md-nav-sref=\"plan\">Plan</md-nav-item>\n      <md-nav-item md-nav-sref=\"do\">Do</md-nav-item>\n      <md-nav-item md-nav-sref=\"about\">About</md-nav-item>\n      <md-nav-item ng-if=\"$ctrl.isAuthenticated()\" md-nav-click=\"$ctrl.logout()\">Logout</md-nav-item>\n      <md-nav-item ng-if=\"!$ctrl.isAuthenticated()\" md-nav-click=\"$ctrl.login()\">Login</md-nav-item>\n    </md-nav-bar>\n    </nav>\n  <ui-view></ui-view> \n</main>";
 
 /***/ },
 /* 33 */
@@ -34007,7 +34010,481 @@
 	  value: true
 	});
 	
-	var _welcome = __webpack_require__(34);
+	var _contexts = __webpack_require__(34);
+	
+	var _contexts2 = _interopRequireDefault(_contexts);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	// import styles from './contexts.scss';
+	
+	exports.default = {
+	  template: _contexts2.default,
+	  bindings: {
+	    contexts: '<',
+	    tasks: '<'
+	
+	  },
+	  controller: controller
+	
+	};
+	
+	
+	controller.$inject = ['contextsService', 'tasksService'];
+	
+	function controller(contextsService, tasksService) {
+	  var _this = this;
+	
+	  contextsService.getAllContexts().then(function (contexts) {
+	    _this.contexts = contexts;
+	  });
+	
+	  this.add = function (context) {
+	    console.log('frontend context', context);
+	    contextsService.addContext(context).then(function (context) {
+	      _this.contexts.push(context);
+	    });
+	  };
+	
+	  this.toContext = function () {
+	    tasksService.getTasksByContext(_this.selected).then(function (tasks) {
+	      return _this.tasks = tasks;
+	    });
+	  };
+	};
+
+/***/ },
+/* 34 */
+/***/ function(module, exports) {
+
+	module.exports = "<section>\n\t\t<h2 class=\"pagetitle\">Contexts</h2>\n\n\t\t<md-input-container>\n\t\t\t<md-select ng-model=\"$ctrl.selected\"\n\t\t\t\tplaceholder=\"Select a Context\"\n\t\t\t\tng-change=\"$ctrl.toContext(event)\"\n\t\t\t\t>\n\t\t\t\t<md-option ng-value=\"context._id\" ng-repeat=\"context in $ctrl.contexts\">{{context.name}}</md-option>\n\n\t\t\t</md-select>\n\t\t</md-input-container>\n\n\t\t<tasklist tasks=\"$ctrl.tasks\" ng-show=\"$ctrl.selected\"></tasklist>\n\n\t<add fields=\"name\" add=\"$ctrl.add\"></add>\n</section>";
+
+/***/ },
+/* 35 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _doing = __webpack_require__(36);
+	
+	var _doing2 = _interopRequireDefault(_doing);
+	
+	var _doing3 = __webpack_require__(37);
+	
+	var _doing4 = _interopRequireDefault(_doing3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _doing2.default,
+	  bindings: {
+	    contexts: '<',
+	    tasks: '<',
+	    projects: '<'
+	  },
+	  controller: controller
+	
+	};
+	
+	
+	controller.$inject = ['contextsService', 'tasksService'];
+	
+	function controller(contextsService, tasksService) {
+	  var _this = this;
+	
+	  this.styles = _doing4.default;
+	
+	  this.$onInit = function () {
+	    _this.allContexts = _this.contexts;
+	  };
+	
+	  // contextsService.getAllContexts()
+	  //   .then(contexts => {
+	  //     this.contexts = contexts;
+	  //   });
+	
+	  this.refreshTasks = function () {
+	    tasksService.getTasksByContext(_this.context._id).then(function (tasks) {
+	      _this.tasks = tasks;
+	    });
+	  };
+	
+	  // this.refresh = () => {
+	  //   tasksService.getAllTasks()
+	  //     .then(tasks => {
+	  //       this.tasks = tasks;
+	  //     });
+	  // };
+	
+	
+	  this.add = function (context) {
+	    contextsService.addContext(context).then(function (context) {
+	      _this.contexts.push(context);
+	    });
+	  };
+	
+	  // this.toContext = () => {
+	  //   tasksService.getTasksByContext(this.selected)
+	  //   .then(tasks => this.tasks = tasks);
+	
+	  // };
+	};
+	
+	// import template from './doing.html';
+	// import styles from './doing.scss';
+	
+	// export default {
+	//   template,
+	//   bindings: {
+	//     contexts: '<',
+	//     tasks: '<'
+	//   },
+	//   controller
+	
+	// };
+	
+	// controller.$inject = ['contextsService', 'tasksService'];
+	
+	// function controller(contextsService, tasksService) {
+	
+	//   this.styles = styles;
+	
+	//   contextsService.getAllContexts()
+	//     .then(contexts => {
+	//       this.contexts = contexts;
+	
+	//     });
+	
+	//   this.add = context => {
+	//     console.log('frontend context', context);
+	//     contextsService.addContext(context)
+	//       .then(context => {
+	//         this.contexts.push(context);
+	
+	//       });
+	//   };
+	
+	//   this.toContext = () => {
+	//     tasksService.getTasksByContext(this.selected)
+	//     .then(tasks => this.tasks = tasks);
+	
+	//   };
+	// };
+
+/***/ },
+/* 36 */
+/***/ function(module, exports) {
+
+	module.exports = "<section>\n\t\t<h2 class=\"pagetitle\">Contexts</h2>\n\t\t<md-input-container>\n\t\t\t<md-select ng-model=\"$ctrl.context\" placeholder=\"Select a Context\" ng-change=\"$ctrl.refreshTasks()\">\n\t\t\t\t<md-option ng-value=\"context\" ng-repeat=\"context in $ctrl.allContexts\">{{context.name}}</md-option>\n\t\t\t</md-select>\n\t\t</md-input-container>\n\t\t<tasklist tasks=\"$ctrl.tasks\" ng-show=\"$ctrl.context\"></tasklist>\n\t<add fields=\"name\" add=\"$ctrl.add\"></add>\n</section>";
+
+/***/ },
+/* 37 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 38 */,
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _planning = __webpack_require__(40);
+	
+	var _planning2 = _interopRequireDefault(_planning);
+	
+	var _planning3 = __webpack_require__(41);
+	
+	var _planning4 = _interopRequireDefault(_planning3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _planning2.default,
+	  bindings: {
+	    tasks: '<',
+	    projects: '<'
+	  },
+	  controller: controller
+	};
+	
+	
+	controller.$inject = ['tasksService', 'projectsService'];
+	
+	function controller(tasksService, projectsService) {
+	  var _this = this;
+	
+	  this.styles = _planning4.default;
+	
+	  this.$onInit = function () {
+	    _this.allProjects = _this.projects;
+	  };
+	
+	  this.refreshTasks = function () {
+	    tasksService.getTasksByProject(_this.projectSelect._id).then(function (tasks) {
+	      _this.tasks = tasks;
+	    });
+	  };
+	
+	  this.refreshProjects = function () {
+	    projectsService.getProjectsByParent(_this.projectSelect._id).then(function (projects) {
+	      _this.projects = projects;
+	    });
+	  };
+	
+	  this.refreshLists = function () {
+	    _this.refreshProjects();
+	    _this.refreshTasks();
+	  };
+	
+	  // this.refreshTasks();
+	}
+
+/***/ },
+/* 40 */
+/***/ function(module, exports) {
+
+	module.exports = "<section>\n  <h2 class=\"pagetitle\">Planning</h2>\n  <md-input-container>\n    <md-select ng-model=\"$ctrl.projectSelect\" ng-change=\"$ctrl.refreshLists()\" placeholder=\"Select a Project\">\n      <md-option ng-value=\"project\" ng-repeat=\"project in $ctrl.allProjects\">{{ project.description }}</md-option>\n    </md-select>\n  </md-input-container>\n  <div>\n  <span class=\"listbox\">\n    <h2>Tasks</h2>\n    <tasklist tasks=\"$ctrl.tasks\"></tasklist>\n  </span>\n  <span class=\"listbox\">\n    <h2>Projects</h2>\n    <projectlist projects=\"$ctrl.projects\"></projectlist>\n  </span>\n  </div>\n</section>";
+
+/***/ },
+/* 41 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 42 */,
+/* 43 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _projectlist = __webpack_require__(44);
+	
+	var _projectlist2 = _interopRequireDefault(_projectlist);
+	
+	var _projectlist3 = __webpack_require__(45);
+	
+	var _projectlist4 = _interopRequireDefault(_projectlist3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _projectlist2.default,
+	  bindings: {
+	    projects: '<'
+	  },
+	  controller: controller
+	};
+	
+	
+	function controller() {
+	
+	  this.styles = _projectlist4.default;
+	}
+
+/***/ },
+/* 44 */
+/***/ function(module, exports) {
+
+	module.exports = "\t<table class=\"projecttable\">\n    <tr><th>Description</th><th>Parent Project</th></tr>\n\t\t<tr ng-repeat=\"project in $ctrl.projects\">\n        <td>{{project.description}}</td><td>{{project.parentId.description}}</td>\n\t\t</tr>\n\t</table>\n";
+
+/***/ },
+/* 45 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 46 */,
+/* 47 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _projects = __webpack_require__(48);
+	
+	var _projects2 = _interopRequireDefault(_projects);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	// import styles from './projects.scss';
+	
+	exports.default = {
+	  template: _projects2.default,
+	  bindings: {
+	    projects: '<'
+	  },
+	  controller: controller
+	};
+	
+	
+	controller.$inject = ['projectsService'];
+	
+	function controller(projectsService) {
+	  var _this = this;
+	
+	  this.refresh = function () {
+	    projectsService.getAllProjects().then(function (projects) {
+	      _this.projects = projects;
+	    });
+	  };
+	
+	  this.refresh();
+	
+	  this.add = function (project) {
+	    projectsService.addProject(project).then(function (project) {
+	      _this.projects.push(project);
+	      _this.refresh();
+	    });
+	  };
+	};
+
+/***/ },
+/* 48 */
+/***/ function(module, exports) {
+
+	module.exports = "<section>\n\t<h2 class=\"pagetitle\">Projects</h2>\n  <projectlist projects=\"$ctrl.projects\"></projectlist>\n  <add fields=\"description,duedate\" add=\"$ctrl.add\" projects=\"$ctrl.projects\"></add><hr>\n</section>\n\n\n";
+
+/***/ },
+/* 49 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _tasklist = __webpack_require__(50);
+	
+	var _tasklist2 = _interopRequireDefault(_tasklist);
+	
+	var _tasklist3 = __webpack_require__(51);
+	
+	var _tasklist4 = _interopRequireDefault(_tasklist3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _tasklist2.default,
+	  bindings: {
+	    tasks: '<'
+	  },
+	  controller: controller
+	};
+	
+	
+	function controller() {
+	
+	  this.styles = _tasklist4.default;
+	}
+
+/***/ },
+/* 50 */
+/***/ function(module, exports) {
+
+	module.exports = "<section>\n  <table class=\"tasktable\">\n    <tr><th>Task</th><th>Due Date</th><th>Completed?</th></tr>\n    <tr ng-repeat=\"task in $ctrl.tasks\">\n      <td>{{task.description}}</td>\n      <td>{{task.duedate}}</td>\n      <td><input type=\"checkbox\"></td>\n    </tr>\n  </table>\n</section>";
+
+/***/ },
+/* 51 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 52 */,
+/* 53 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _tasks = __webpack_require__(54);
+	
+	var _tasks2 = _interopRequireDefault(_tasks);
+	
+	var _tasks3 = __webpack_require__(55);
+	
+	var _tasks4 = _interopRequireDefault(_tasks3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  template: _tasks2.default,
+	  bindings: {
+	    tasks: '<',
+	    projects: '<',
+	    contexts: '<'
+	  },
+	  controller: controller
+	};
+	
+	
+	controller.$inject = ['tasksService'];
+	function controller(tasksService) {
+	  var _this = this;
+	
+	  this.refresh = function () {
+	    tasksService.getAllTasks().then(function (tasks) {
+	      _this.tasks = tasks;
+	    });
+	  };
+	
+	  this.refresh();
+	
+	  this.add = function (task) {
+	    tasksService.addTask(task).then(function (task) {
+	      _this.tasks.push(task);
+	      _this.refresh();
+	    });
+	  };
+	};
+
+/***/ },
+/* 54 */
+/***/ function(module, exports) {
+
+	module.exports = "<section>\n\t<h2 class=\"pagetitle\">Tasks</h2>\n  <tasklist tasks=\"$ctrl.tasks\"></tasklist>\n\t<add fields=\"description,duedate\" add=\"$ctrl.add\" projects=\"$ctrl.projects\" tasks=\"$ctrl.tasks\" contexts=\"$ctrl.contexts\"></add>\n</section>";
+
+/***/ },
+/* 55 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 56 */,
+/* 57 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _welcome = __webpack_require__(58);
 	
 	var _welcome2 = _interopRequireDefault(_welcome);
 	
@@ -34018,13 +34495,13 @@
 	};
 
 /***/ },
-/* 34 */
+/* 58 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n\t<!--<a ui-sref=\"collect\"</a>-->\n\t<h2>Welcome to the Big To Do App!</h2>\n  <md-nav-bar>\n    <md-nav-item md-nav-sref=\"collecting\">Collecting</md-nav-item>\n    <md-nav-item md-nav-sref=\"planning\">Planning</md-nav-item>\n    <md-nav-item md-nav-sref=\"doing\">Doing</md-nav-item>\n  </md-nav-bar>\n</section>";
+	module.exports = "<section>\n\t<!--<a ui-sref=\"collect\"</a>-->\n\t<h2>Welcome to the BigToDo App!</h2>\n</section>";
 
 /***/ },
-/* 35 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34048,7 +34525,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// .context is a method webpack adds to require 
-	var context = __webpack_require__(36);
+	var context = __webpack_require__(60);
 	
 	// create the module to put the resources in,
 	// in this case directives
@@ -34067,16 +34544,17 @@
 	exports.default = _module.name;
 
 /***/ },
-/* 36 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./contextsService.js": 37,
-		"./projectsService.js": 38,
-		"./tasksService.js": 39,
-		"./token-service.js": 40,
-		"./user-service.js": 41,
-		"./usersService.js": 42
+		"./contextsService.js": 61,
+		"./login-service.js": 62,
+		"./projectsService.js": 63,
+		"./tasksService.js": 64,
+		"./token-service.js": 65,
+		"./user-service.js": 66,
+		"./usersService.js": 67
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -34089,11 +34567,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 36;
+	webpackContext.id = 60;
 
 
 /***/ },
-/* 37 */
+/* 61 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34135,7 +34613,40 @@
 	}
 
 /***/ },
-/* 38 */
+/* 62 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = loginService;
+	loginService.$inject = ['ngDialog'];
+	
+	function loginService(ngDialog) {
+	  return {
+	    login: function login() {
+	      return new Promise(function (resolve, reject) {
+	        var dialog = ngDialog.open({
+	          // ngDialog missed the boat on template vs templateUrl
+	          template: '<user-auth success="success"></user-auth>',
+	          // plain: true === template; plain: false (default) === templateUrl 
+	          plain: true,
+	          controller: ['$scope', function ($scope) {
+	            $scope.success = function () {
+	              dialog.close();
+	              resolve();
+	            };
+	          }]
+	        });
+	      });
+	    }
+	  };
+	}
+
+/***/ },
+/* 63 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34182,7 +34693,7 @@
 	}
 
 /***/ },
-/* 39 */
+/* 64 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34201,12 +34712,12 @@
 	      });
 	    },
 	    getTasksByProject: function getTasksByProject(projectId) {
-	      return $http.get(apiUrl + '/tasks?project=' + projectId).then(function (res) {
+	      return $http.get(apiUrl + '/tasks?projectId=' + projectId).then(function (res) {
 	        return res.data;
 	      });
 	    },
 	    getTasksByContext: function getTasksByContext(contextId) {
-	      return $http.get(apiUrl + '/tasks?context=' + contextId).then(function (res) {
+	      return $http.get(apiUrl + '/tasks?contextId=' + contextId).then(function (res) {
 	        return res.data;
 	      });
 	    },
@@ -34234,7 +34745,7 @@
 	}
 
 /***/ },
-/* 40 */
+/* 65 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34262,7 +34773,7 @@
 	}
 
 /***/ },
-/* 41 */
+/* 66 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34315,7 +34826,7 @@
 	}
 
 /***/ },
-/* 42 */
+/* 67 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34337,15 +34848,15 @@
 	}
 
 /***/ },
-/* 43 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(44);
+	__webpack_require__(69);
 	module.exports = 'ngAnimate';
 
 
 /***/ },
-/* 44 */
+/* 69 */
 /***/ function(module, exports) {
 
 	/**
@@ -38505,7 +39016,7 @@
 
 
 /***/ },
-/* 45 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -46854,7 +47365,7 @@
 	//# sourceMappingURL=angular-ui-router.js.map
 
 /***/ },
-/* 46 */
+/* 71 */
 /***/ function(module, exports) {
 
 	/**
@@ -46955,7 +47466,7 @@
 	})(window.angular);
 
 /***/ },
-/* 47 */
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -47164,15 +47675,15 @@
 	//# sourceMappingURL=stateEvents.js.map
 
 /***/ },
-/* 48 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(49);
+	__webpack_require__(74);
 	module.exports = 'ngResource';
 
 
 /***/ },
-/* 49 */
+/* 74 */
 /***/ function(module, exports) {
 
 	/**
@@ -48025,7 +48536,7 @@
 
 
 /***/ },
-/* 50 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -48920,47 +49431,47 @@
 
 
 /***/ },
-/* 51 */
+/* 76 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 52 */,
-/* 53 */
+/* 77 */,
+/* 78 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 54 */,
-/* 55 */
+/* 79 */,
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Should already be required, here for clarity
 	__webpack_require__(1);
 	
 	// Load Angular and dependent libs
-	__webpack_require__(43);
-	__webpack_require__(56);
+	__webpack_require__(68);
+	__webpack_require__(81);
 	
 	// Now load Angular Material
-	__webpack_require__(58);
+	__webpack_require__(83);
 	
 	// Export namespace
 	module.exports = 'ngMaterial';
 
 
 /***/ },
-/* 56 */
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(57);
+	__webpack_require__(82);
 	module.exports = 'ngAria';
 
 
 /***/ },
-/* 57 */
+/* 82 */
 /***/ function(module, exports) {
 
 	/**
@@ -49368,7 +49879,7 @@
 
 
 /***/ },
-/* 58 */
+/* 83 */
 /***/ function(module, exports) {
 
 	/*!
@@ -82323,21 +82834,21 @@
 	})(window, window.angular);;window.ngMaterial={version:{full: "1.1.1"}};
 
 /***/ },
-/* 59 */
+/* 84 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 60 */,
-/* 61 */
+/* 85 */,
+/* 86 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 62 */,
-/* 63 */
+/* 87 */,
+/* 88 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -82380,30 +82891,106 @@
 	}
 
 /***/ },
-/* 64 */
+/* 89 */
 /***/ function(module, exports) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	   value: true
+	  value: true
 	});
 	exports.default = routes;
 	routes.$inject = ['$stateProvider', '$urlRouterProvider'];
 	
 	function routes($stateProvider, $urlRouterProvider) {
 	
-	   $stateProvider.state({
-	      name: 'welcome',
-	      url: '/',
-	      component: 'welcome'
-	   });
+	  $stateProvider.state({
+	    name: 'welcome',
+	    url: '/',
+	    component: 'welcome'
+	  });
 	
-	   $urlRouterProvider.otherwise('/');
+	  $stateProvider.state({
+	    name: 'tasks',
+	    url: '/tasks',
+	    component: 'tasks',
+	    resolve: {
+	      tasks: ['tasksService', function (tasksService) {
+	        return tasksService.getAllTasks();
+	      }],
+	      contexts: ['contextsService', function (contextsService) {
+	        return contextsService.getAllContexts();
+	      }],
+	      projects: ['projectsService', function (projectsService) {
+	        return projectsService.getAllProjects();
+	      }]
+	    }
+	  });
+	
+	  $stateProvider.state({
+	    name: 'projects',
+	    url: '/projects',
+	    component: 'projects',
+	    resolve: {
+	      projects: ['projectsService', function (projectsService) {
+	        return projectsService.getAllProjects();
+	      }]
+	    }
+	  });
+	
+	  // $stateProvider.state({
+	  //   name: 'contexts',
+	  //   url: '/contexts',
+	  //   component: 'contexts',
+	  //   resolve: {
+	  //     contexts: ['contextsService', contextsService => {
+	  //       return contextsService.getAllContexts();
+	  //     }]
+	  //   },
+	  // });
+	
+	  $stateProvider.state({
+	    name: 'plan',
+	    url: '/planning',
+	    component: 'planning',
+	    resolve: {
+	      projects: ['projectsService', function (projectsService) {
+	        return projectsService.getAllProjects();
+	      }],
+	      tasks: ['tasksService', function (tasksService) {
+	        return tasksService.getAllTasks();
+	      }]
+	    }
+	  });
+	
+	  $stateProvider.state({
+	    name: 'do',
+	    url: '/doing',
+	    component: 'doing',
+	    resolve: {
+	      projects: ['projectsService', function (projectsService) {
+	        return projectsService.getAllProjects();
+	      }],
+	      tasks: ['tasksService', function (tasksService) {
+	        return tasksService.getAllTasks();
+	      }],
+	      contexts: ['contextsService', function (contextsService) {
+	        return contextsService.getAllContexts();
+	      }]
+	    }
+	  });
+	
+	  $stateProvider.state({
+	    name: 'about',
+	    url: '/about',
+	    component: 'about'
+	  });
+	
+	  $urlRouterProvider.otherwise('/');
 	}
 
 /***/ },
-/* 65 */
+/* 90 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -82412,9 +82999,9 @@
 	  value: true
 	});
 	exports.default = auth;
-	auth.$inject = ['$rootScope', 'userService', 'ngDialog', '$state'];
+	auth.$inject = ['$rootScope', 'userService', 'loginService', '$state'];
 	
-	function auth($rootScope, userService, ngDialog, $state) {
+	function auth($rootScope, userService, loginService, $state) {
 	
 	  // angular-ui-router puts this event ($stateChangeStart) on $rootScope
 	  $rootScope.$on('$stateChangeStart', function (event, toState, toParams /*, fromState, fromParams*/) {
@@ -82422,24 +83009,11 @@
 	    // console.log('$scs', toState, toParams, fromState, fromParams);
 	
 	    if (!(toState.data && toState.data.public) && !userService.isAuthenticated()) {
-	      (function () {
-	        // stop ui-router from making the state change        
-	        event.preventDefault();
-	
-	        // throw up a dialog and ask user to signin/signup
-	        var dialog = ngDialog.open({
-	          // ngDialog missed the boat on template vs templateUrl
-	          template: '<user-auth success="success"></user-auth>',
-	          // plain: true === template; plain: false (default) === templateUrl 
-	          plain: true,
-	          controller: ['$scope', function ($scope) {
-	            $scope.success = function () {
-	              dialog.close();
-	              return $state.go(toState.name, toParams);
-	            };
-	          }]
-	        });
-	      })();
+	      // stop ui-router from making the state change        
+	      event.preventDefault();
+	      loginService.login().then(function () {
+	        $state.go(toState.name, toParams);
+	      });
 	    }
 	  });
 	}

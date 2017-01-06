@@ -4,15 +4,26 @@ button {
   button:hover {
     color: yellow; }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: lightgrey; }
+body, html {
+  font-family: 'Open Sans', sans-serif;
+  background-color: lemonchiffon; }
 
-h3 {
-  color: blue; }
+h2 {
+  font-family: Ubuntu, Arial, sans-serif; }
 
 img {
   max-width: 90%; }
+
+h2, h3, h4, p {
+  margin: 0.5em; }
+
+.pagetitle {
+  font-style: italic; }
+
+.sitelogo {
+  font-family: Baloo, sans-serif;
+  text-align: center;
+  color: maroon; }
 .error {
   color: red; }
 .error {
@@ -23,6 +34,30 @@ img {
     color: steelblue;
     border: 1px solid steelblue;
     padding: 10px; }
+.addbox {
+  border: 1px solid black;
+  margin: 0.5em;
+  padding: 0.5em;
+  display: inline-block; }
+.listbox {
+  display: inline-block;
+  float: left;
+  padding: 0.5em; }
+
+md-input-container {
+  margin: 0.5em; }
+.projecttable {
+  margin: 0.5em;
+  border-collapse: collapse; }
+  .projecttable td, .projecttable th {
+    outline: thin solid black;
+    padding: 0.2em 0.5em; }
+.tasktable {
+  margin: 0.5em;
+  border-collapse: collapse; }
+  .tasktable td, .tasktable th {
+    outline: thin solid black;
+    padding: 0.2em 0.5em; }
 @-webkit-keyframes ngdialog-fadeout {
   0% {
     opacity: 1;
