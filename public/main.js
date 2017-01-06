@@ -34179,7 +34179,7 @@
 /* 36 */
 /***/ function(module, exports) {
 
-	module.exports = "<section>\n\t\t<h2 class=\"pagetitle\">Contexts</h2>\n\t\t<md-input-container>\n\t\t\t<md-select ng-model=\"$ctrl.context\" placeholder=\"Select a Context\" ng-change=\"$ctrl.refreshTasks()\">\n\t\t\t\t<md-option ng-value=\"context\" ng-repeat=\"context in $ctrl.allContexts\">{{context.name}}</md-option>\n\t\t\t</md-select>\n\t\t</md-input-container>\n\t\t<tasklist tasks=\"$ctrl.tasks\" ng-show=\"$ctrl.context\"></tasklist>\n\t<add fields=\"name\" add=\"$ctrl.add\"></add>\n</section>\n\n<section>\n\t\t<h2 class=\"pagetitle\">Contexts</h2>\n\t\t<md-input-container>\n\t\t\t<md-select ng-model=\"$ctrl.selected\"\n\t\t\t\tplaceholder=\"Select a Context\"\n\t\t\t\tng-change=\"$ctrl.toContext(event)\"\n\t\t\t\t>\n\t\t\t\t<md-option ng-value=\"context._id\" ng-repeat=\"context in $ctrl.contexts\">{{context.name}}</md-option>\n\n\t\t\t</md-select>\n\t\t</md-input-container>\n\n\t\t<tasklist tasks=\"$ctrl.tasks\" ng-show=\"$ctrl.selected\"></tasklist>\n\n\t<add fields=\"name\" add=\"$ctrl.add\"></add>\n</section>-->";
+	module.exports = "<section>\n\t\t<h2 class=\"pagetitle\">Contexts</h2>\n\t\t<md-input-container>\n\t\t\t<md-select ng-model=\"$ctrl.context\" placeholder=\"Select a Context\" ng-change=\"$ctrl.refreshTasks()\">\n\t\t\t\t<md-option ng-value=\"context\" ng-repeat=\"context in $ctrl.allContexts\">{{context.name}}</md-option>\n\t\t\t</md-select>\n\t\t</md-input-container>\n\t\t<tasklist tasks=\"$ctrl.tasks\" ng-show=\"$ctrl.context\"></tasklist>\n\t<add fields=\"name\" add=\"$ctrl.add\"></add>\n</section>";
 
 /***/ },
 /* 37 */
