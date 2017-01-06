@@ -8,3 +8,4 @@
 {"_id":{"$oid":"586eb62825a6207ba8a6a6ac"},"name":"Errands","userId":{"$oid":"586e8bce0d2ffb772e4606dd"}}
 {"_id":{"$oid":"586eb63125a6207ba8a6a6ad"},"name":"AtWork","userId":{"$oid":"586e8bce0d2ffb772e4606dd"}}
 {"_id":{"$oid":"586eb63725a6207ba8a6a6ae"},"name":"OnMoon","userId":{"$oid":"586e8bce0d2ffb772e4606dd"}}
+{"_id":{"$oid":"586ef047529d5095933797db"},"userId":{"$oid":"586e8bce0d2ffb772e4606da"},"name":"Phone","__v":0}
